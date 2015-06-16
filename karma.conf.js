@@ -10,20 +10,20 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['requirejs', 'cucumberjs'],
+        frameworks: [/*'requirejs',*/ 'cucumberjs'],
 
 
         // list of files / patterns to load in the browser
         files: [
-            'test-main.js',
-            {pattern: 'src/app/**/*.js', included: false},
+            //'test-main.js',
+            {pattern: 'src/test/app.template', watched: false, included: false, served: true},
+            {pattern: 'src/features/**/*.feature', watched: true, included: false, served: true},
+            {pattern: 'src/app/**/*.js', included: true, watched: true, served: true},
             {
                 pattern: 'node_modules/karma-cucumberjs/vendor/cucumber-html.css', watched: false,
                 included: false, served: true
             },
-            {pattern: 'src/test/app.template', watched: false, included: false, served: true},
-            {pattern: 'src/features/**/*.feature', watched: true, included: false, served: true},
-            {pattern: 'src/test/**/*-test.js', watched: true, included: false, served: true}
+            {pattern: 'src/test/**/*-test.js', watched: true, included: true, served: true}
         ],
 
 

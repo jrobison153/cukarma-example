@@ -1,21 +1,23 @@
-define(function () {
-    var numberStack = [];
-    var result = 0;
+//define(function () {
+var Calc = {
+    numberStack: [],
+    calcResult: 0,
 
-    function push(num) {
-        numberStack.push(num);
-    }
+    push: function (num) {
+        this.numberStack.push(parseInt(num));
+    },
 
-    function add() {
-        result = 0;
-        for (var i = 0; i < numberStack.length; i++) {
-            result += numberStack[i];
+    add: function () {
+        this.calcResult = 0;
+        for (var i = 0; i < this.numberStack.length; i++) {
+            this.calcResult += this.numberStack[i];
         }
-    }
+    },
 
-    function result() {
-        return result;
+    result: function () {
+        return this.calcResult;
     }
-});
+};
+//});
 
 
